@@ -75,4 +75,5 @@ function Board.removeTiles(self, p, Card)
             p.y = y+1
         end
     end
+    print('Removed Tiles')
 end

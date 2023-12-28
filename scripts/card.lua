@@ -24,7 +24,7 @@ function Card.draw(self, x, y)
     end
 end
 
-function Card.drawPreview(self, p, b)
+function Card:drawPreview(p, b)
     local px = (b.x + (p.x-1)*b.pixelWidth)+b.pixelWidth/2
     local py = (b.y + (p.y-1)*b.pixelWidth)+b.pixelWidth/2
     direction = 'h'
@@ -95,6 +95,20 @@ function loadCards()
             {x = 1, y = -1},
             {x = -1, y = -1},
             {x = 1, y = -1},
+        }
+    ))
+    table.insert(Cards, Card(
+        {
+            {x = 1, y = -1},
+            {x = 0, y = -1},
+            {x = -1, y = -1},
+        }
+    ))
+    table.insert(Cards, Card(
+        {
+            {x = 0, y = -1},
+            {x = -1, y = -1},
+            {x = 0, y = -1},
         }
     ))
 end

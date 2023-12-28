@@ -21,17 +21,29 @@ end
 function love.update(dt)
     math.randomseed(love.timer.getTime())
     mx, my = love.mouse.getPosition()
-    board.update(board, dt)
-    
+    board:update(dt)
+    player:update(dt)
+    hand:update(dt)
 end
 
 function love.draw()
-    board.draw(board)
-    player.draw(player, board)
-    hand.draw(hand)
-    hand.selectedCard.drawPreview(hand.selectedCard, player, board)
+    
+    board:draw()
+    print('Drew Player')
+    love.graphics.setLineWidth(6)
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.rectangle('line', board.x + board.pixelWidth * (player.x-1), board.y + board.pixelWidth * (player.y-1), board.pixelWidth, board.pixelWidth)
+    hand:draw()
+    hand.selectedCard:drawPreview(player, board)
+    love.graphics.print(tostring(mx)..'   '..tostring(my))
+    love.graphics.print(tostring(love.mouse.isDown(1)), 0, 50)
 end
 
 function love.mousepressed(x, y, button, istouch, presses)
+    print('Removed Tiles')
     board.removeTiles(board, player, hand.selectedCard)
+end
+
+function love.keypressed(key, scancode, isrepeat)
+
 end

@@ -1,5 +1,5 @@
 name = "Works Like a Charm"
-default_targets = ["win64"]
+default_targets = ["win64", "lovejs"]
 build_directory = "builds"
 
 love_files = [
